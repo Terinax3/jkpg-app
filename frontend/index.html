@@ -1,45 +1,51 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <title>JkpgCity Venues</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>JkpgCity – Venues</h1>
-    <div class="controls">
-      <label>Sort:
-        <select id="sortSelect">
-          <option value="id">Newest</option>
-          <option value="name">Name</option>
-          <option value="category">Category</option>
-        </select>
-      </label>
-    </div>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <title>JkpgCity Venues</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>JkpgCity – Venues</h1>
+      <div class="controls">
+        <label
+          >Sort:
+          <select id="sortSelect">
+            <option value="id">Newest</option>
+            <option value="name">Name</option>
+            <option value="category">Category</option>
+          </select>
+        </label>
+      </div>
+    </header>
 
-  <main>
-    <section class="card">
-      <h2 id="formTitle">Add venue</h2>
-      <form id="venueForm">
-        <input type="hidden" id="venueId" />
-        <label>Name* <input id="name" required /></label>
-        <label>Category* <input id="category" required /></label>
-        <label>District <input id="district" /></label>
-        <label>Website <input id="website" /></label>        <div class="row">
-          <button type="submit">Save</button>
-          <button type="button" id="cancelEdit" class="secondary">Cancel</button>
-        </div>
-      </form>
-    </section>
+    <main>
+      <section class="card">
+        <h2 id="formTitle">Add venue</h2>
+        <form id="venueForm">
+          <input type="hidden" id="venueId" />
+          <label>Name* <input id="name" required /></label>
+          <label>Category* <input id="category" required /></label>
+          <label>District <input id="district" /></label>
+          <label>Website <input id="website" /></label>
+          <div class="row">
+            <button type="submit">Save</button>
+            <button type="button" id="cancelEdit" class="secondary">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
 
-    <section class="card">
-      <h2>Venues</h2>
-      <ul id="venueList"></ul>
-    </section>
-  </main>
+      <section class="card">
+        <h2>Venues</h2>
+        <ul id="venueList">
+          <p>PIZZA ALL DAY ALL NIGHT</p>
+        </ul>
+      </section>
+    </main>
 
-  <script src="app.js"></script>
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>
