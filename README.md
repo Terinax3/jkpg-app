@@ -3,7 +3,7 @@ Web Development – Advanced Concepts
 
 Project: Web application for managing venues in Jönköping.
 
-Students: [Tereza], [], [], []
+Students: [Tereza], [Sofija], [Rafaela], [Caroline]
 
 ---
 
