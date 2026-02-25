@@ -14,10 +14,8 @@ app.use(express.json());
 // Mount routes properly (THIS is where /api/venues is defined)
 app.use("/api/venues", venuesRoutes);
 
-const PORT = process.env.PORT || 3000;
-
 app.use(express.static(path.join(__dirname, "../../frontend")));
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+app.listen(3001, "0.0.0.0", () => {
+  console.log("Server running on http://localhost:3001, frontend http://localhost:3000");
 });
