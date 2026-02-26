@@ -2,51 +2,105 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>JkpgCity Venues</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- HEADER -->
     <header>
-      <h1>JkpgCity – Venues</h1>
-      <div class="controls">
-        <label
-          >Sort:
-          <select id="sortSelect">
-            <option value="id">Newest</option>
-            <option value="name">Name</option>
-            <option value="category">Category</option>
-          </select>
-        </label>
-      </div>
+      <h1 class="logo">JKPG</h1>
+      <ul class="header-navigation-menu">
+        <li class="header-navigation-menu-button"><a href="#">explore</a></li>
+        <li class="header-navigation-menu-button login-bttn"><a href="#">log in</a></li>
+      </ul>
     </header>
 
     <main>
-      <section class="card">
-        <h2 id="formTitle">Add venue</h2>
+      <!-- SECTION - SORT -->
+      <section class="section-sort-venues foreground">
+        <div class="sort-container">
+          <div>
+            <label>
+            <input type="search" name="search" id="searchVenues" placeholder="Search...">
+            </label>
+          </div>
+          <div class="controls">
+              <label>
+                <select id="sortSelect">
+                  <option value="id">NEW</option>
+                  <option value="name">NAME</option>
+                  <option value="category">CATEGORY</option>
+                </select>
+              </label>
+          </div>
+        </div>
+        <button class="accent-bttn account-bttn">ACCOUNT</button>
+      </section>
+
+      <!-- SECTION - CREATE -->
+      <section class="section-create-venues foreground">
+        <h2 class="section-title">+ CREATE VENUE</h2>
         <form id="venueForm">
           <input type="hidden" id="venueId" />
-          <label>Name* <input id="name" required /></label>
-          <label>Category* <input id="category" required /></label>
-          <label>District <input id="district" /></label>
-          <label>Website <input id="website" /></label>
+          <label><input id="name" required placeholder="Name*"/></label>
+          <label><input id="category" placeholder="Category*"required /></label>
+          <label><input id="district" placeholder="District"/></label>
+          <label><input id="website" placeholder="Website"/></label>
           <div class="row">
-            <button type="submit">Save</button>
-            <button type="button" id="cancelEdit" class="secondary">
-              Cancel
-            </button>
+            <button type="submit" class="accent-bttn">Create</button>
+            <button type="button" id="cancelEdit">Cancel</button>
           </div>
         </form>
       </section>
-
-      <section class="card">
-        <h2>Venues</h2>
-        <ul id="venueList">
-          <p>🐰🙏🥕🥕🥕</p>
-          <p>PIZZA ALL DAY ALL NIGHT</p>
-          <p>Sushi Time</p>
-        </ul>
+      
+      <!-- SECTION - EXPLORE -->
+      <section class="section-venues foreground">
+        <h2 class="section-title">EXPLORE</h2>
+        <div class="venues-container">
+          <ul id="venueList">
+          </ul>
+        </div>
       </section>
     </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-profile">
+        <h1 class="logo"><b>JKPG</b></h1>
+        <p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sem lacus, sodales a ex eget, feugiat pulvinar diam.</p>
+        <br>
+        <p class="footer-description"><b>@JKPG 2026</b></p>
+      </div>
+      <div class="footer-links">
+        <ul>
+          <p>JKPG</p>
+          <li class="strong"><a href="#">About</a></li>
+          <li class="strong"><a href="#">Support</a></li>
+          <li class="strong"><a href="#">Contact</a></li>
+        </ul>
+        <ul>
+          <p>Privacy</p>
+          <li class="strong"><a href="#">Privacy Policy</a></li>
+          <li class="strong"><a href="#">Cookie Settings</a></li>
+          <li class="strong"><a href="#">Link</a></li>
+        </ul>
+        <ul>
+          <p>Links</p>
+          <li class="strong"><a href="#">Link</a></li>
+          <li class="strong"><a href="#">Link</a></li>
+          <li class="strong"><a href="#">Link</a></li>
+        </ul>
+        <ul>
+          <p>Links</p>
+          <li class="strong"><a href="#">Link</a></li>
+          <li class="strong"><a href="#">Link</a></li>
+          <li class="strong"><a href="#">Link</a></li>
+        </ul>
+      </div>
+    </footer>
 
     <script src="app.js"></script>
   </body>

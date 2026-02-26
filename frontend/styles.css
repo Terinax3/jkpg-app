@@ -1,55 +1,334 @@
-body {
-  font-family: system-ui, sans-serif;
+:root {
+  --primary: #fff;
+  --secondary: #000;
+  --foreground: #F6F6F6;
+  --accent: #0051FF;
+  --hover: #dbdbdb;
+  --text-color: #000;
+  --text-larger: larger;
+  --text-large: large;
+  --text-medium: medium;
+  --text-small: small;
+  --padding: 2em;
+  --text-weight-normal: 400;
+  --text-weight-medium: 700;
+  --text-weight-bold: 900;
+  --font: "Inter", sans-serif;
+}
+* {
   margin: 0;
-  padding: 16px;
-  background: #ce1e81;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  text-decoration: none;
+  color: var(--secondary);
+  list-style: none;
 }
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
+body {
+  font-family: var(--font);
+  background: var(--primary);
+  font-size: large;
 }
-main {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 16px;
-}
-.card {
-  background: pink;
+
+
+/* --- STYLES --- */
+.foreground {
   padding: 16px;
   border-radius: 12px;
 }
-label {
-  display: block;
+input, button, select, textarea, label input, label select {
   margin: 8px 0;
+  padding: 10px 20px;
+  font-family: var(--font);
+  font-size: 0.9em;
+  outline: none;
+  border: none;
 }
-input,
-textarea,
-select {
+label input, label select {
+  border: 1px solid transparent;
+  padding: 1em;
   width: 100%;
-  padding: 8px;
+  font: var(--font);
+}
+button {
+  cursor: pointer;
+  padding: 15px 30px;
 }
 .row {
   display: flex;
   gap: 8px;
   margin-top: 8px;
 }
-button {
-  padding: 8px 12px;
-  cursor: pointer;
+button:hover {
+  background-color: var(--hover);
 }
-.secondary {
-  background: #eee;
+.accent-bttn {
+  background-color: var(--accent);
+  color: white;
 }
-li {
+.accent-bttn:hover {
+  background-color: var(--secondary);
+}
+.special-bttn {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+.special-bttn:hover {
+  background-color: var(--accent);
+}
+.caution:hover {
+  background-color: rgb(247, 97, 97);
+}
+header, input, button, select, span {
+  font-weight: var(--txt-weight-medium);
+}
+.icon {
+  width: 1rem;
+}
+.section-title {
+  font-weight: var(--text-weight-bold);
+}
+
+
+/* --- HEADER / FOOTER --- */
+header, footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15em 0 15em;
+  background-color: var(--foreground);
+  font-size: 1.1em;
+}
+.logo {
+  font-weight: var(--text-weight-bold);
+}
+/* Header */
+.header-navigation-menu {
+  display: flex;
+  align-items: center;
+
   list-style: none;
-  padding: 10px;
-  border-bottom: 1px solid #eee;
+  margin: 0;
+  padding: 0;
+}
+.header-navigation-menu li {
+  margin: 0;
+  padding: 0;
+}
+.header-navigation-menu-button a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em 2.5em;
+
+  text-decoration: none;
+  line-height: 1;
+}
+.header-navigation-menu-button a:hover {
+  background-color: var(--hover);
+}
+.login-bttn a {
+  background-color: var(--secondary);
+  color: #fff;
+}
+.login-bttn a:hover {
+  background-color: var(--accent);
+  color: #fff;
+}
+.accent-bttn a {
+  background-color: var(--accent);
+  color: #fff;
+  font-size: 1.3rem;
+}
+.accent-bttn a:hover {
+  background-color: var(--accent);
+  color: #fff;
+}
+.strong a {
+  font-weight: var(--txt-weight-medium);
+}
+
+/* Footer */
+footer {
+  padding: 3em 15em 5em 15em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-size: var(--text-medium);
+}
+.footer-profile {
+  grid-column: span 1;
+}
+.footer-description {
+  font-size: var(--text-small);
+}
+.footer-links {
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-around;
+}
+.footer-links ul { 
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-links ul li a{ 
+  display: block;
+  font-weight: var(--text-weight-medium);
+}
+
+
+/* --- MAIN - LAYOUT --- */
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+  margin: 0 15.5em;
+  margin-bottom: 30px;
+}
+.section-sort-venues {
+  grid-column: span 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-create-venues {
+  grid-column: span 1;
+}
+.section-venues {
+  grid-column: span 2;
+}
+
+
+/* --- SECTION - SORT --- */
+.sort-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+#searchVenues {
+  width: 43rem;
+  min-width: 20rem;
+  background-color: var(--foreground);
+  font-size: 1.2rem;
+}
+#sortSelect {
+  background-color: var(--accent);
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+.section-sort-venues button {
+    font-size: var(--text-larger);
+    font-weight: var(--text-weight-medium);
+}
+
+
+/* --- SECTION - CREATE --- */
+#venueForm input {
+  background-color: var(--foreground);
+  font-weight: var(--txt-weight-medium);
+}
+
+
+
+/* --- SECTION - EXPLORE --- */
+/* Venue Container */
+.venues-container {
+  height: 53em;
+  overflow: auto;
+  margin-top: 9px;
+}
+.venues-container::-webkit-scrollbar{
+  width: 12px;
+}
+.venues-container::-webkit-scrollbar-track{
+  background-color: transparent;
+  border-radius: 0;
+}
+.venues-container::-webkit-scrollbar-thumb{
+  background-color: var(--secondary);
+  border: 6px solid var(--secondary);
+  border-radius: 0;
+}
+
+/* Vanue List */
+#venueList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-right: 1rem;
+}
+.hover {
+  background-color: var(--accent);
+  color: white;
 }
 .actions {
   display: flex;
   gap: 8px;
   margin-top: 8px;
 }
+/* Venue List Cards */
+.venues-card {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  background-color: var(--foreground);
+}
+.card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.venue-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.card-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+.card-image {
+  aspect-ratio: 2 / 1;
+  width: 100%;
+  overflow: hidden;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card-bttn {
+  padding: 8px 15px;
+}
+
+/* Venues Styles */
+.title {
+  font-size: var(--text-larger);
+  font-weight: 700;
+}
+.category {
+  font-size: var(--text-medium);
+  font-weight: var(--text-weight-normal);
+}
+.district {
+  font-size: var(--text-medium);
+  font-weight: var(--text-weight-medium);
+}
+
+
+
+
+

@@ -25,14 +25,39 @@ function renderVenues(venues) {
   for (const v of venues) {
     const li = document.createElement("li");
     li.innerHTML = `
-      <strong>${escapeHtml(v.name)}</strong> (${escapeHtml(v.category)})<br/>
-      <small>${escapeHtml(v.district || "")}</small><br/>
-      ${v.website ? `<a href="${escapeAttr(v.website)}" target="_blank">Website</a><br/>` : ""}
-      <div class="actions">
-        <button data-action="edit" data-id="${v.id}">Edit</button>
-        <button data-action="delete" data-id="${v.id}">Delete</button>
+  <div class="venues-card">
+
+    <div class="card-image">
+      <img class="image" src="img/image.jpg">
+    </div>
+
+    <div class="card-info">
+      <div class="card-top">
+        ${v.website 
+          ? `<a href="${escapeAttr(v.website)}" target="_blank" rel="noopener noreferrer">
+              <span class="title">${escapeHtml(v.name)}</span>
+            </a>`
+          : `<span class="title">${escapeHtml(v.name)}</span>`
+        }
+        <div class="venue-icon-container">
+          <img class="icon" src="img/category.svg">
+          <span class="category">${escapeHtml(v.category)}</span>
+        </div>
       </div>
-    `;
+
+      <div class="card-bottom">
+        <div class="venue-icon-container">
+          <img class="icon" src="img/location.svg">
+          <span class="district">${escapeHtml(v.district || "")}</span>
+        </div>
+        <div class="actions">
+          <button data-action="edit" data-id="${v.id}" class="special-bttn card-bttn">Edit</button>
+          <button data-action="delete" data-id="${v.id}" class="caution card-bttn"><img class="icon" src="img/delete.svg"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+`;
     venueList.appendChild(li);
   }
 }
