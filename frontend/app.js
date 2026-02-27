@@ -52,7 +52,7 @@ function renderVenues(venues) {
         </div>
         <div class="actions">
           <button data-action="edit" data-id="${v.id}" class="special-bttn card-bttn">Edit</button>
-          <button data-action="delete" data-id="${v.id}" class="caution card-bttn"><img class="icon" src="img/delete.svg"></button>
+          <button data-action="delete" data-id="${v.id}" class="caution delete-bttn card-bttn"><img class="icon" src="img/delete.svg"></button>
         </div>
       </div>
     </div>

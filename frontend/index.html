@@ -11,94 +11,107 @@
   <body>
     <!-- HEADER -->
     <header>
-      <h1 class="logo">JKPG</h1>
-      <ul class="header-navigation-menu">
-        <li class="header-navigation-menu-button"><a href="#">explore</a></li>
-        <li class="header-navigation-menu-button login-bttn"><a href="#">log in</a></li>
-      </ul>
+      <div class="header-footer-padding">
+          <div class="container-header">
+              <h1 class="logo">JKPG</h1>
+              <ul class="header-navigation-menu">
+                <li class="header-navigation-menu-button"><a href="#">explore</a></li>
+                <li class="header-navigation-menu-button login-bttn"><a href="#">log in</a></li>
+              </ul>
+          </div>
+      </div>
     </header>
 
+    <!-- MAIN -->
     <main>
-      <!-- SECTION - SORT -->
-      <section class="section-sort-venues foreground">
-        <div class="sort-container">
-          <div>
-            <label>
-            <input type="search" name="search" id="searchVenues" placeholder="Search...">
-            </label>
-          </div>
-          <div class="controls">
+      <div class="container container-main">
+        
+        <!-- SECTION - SORT -->
+        <section class="section-sort-venues">
+          <div class="sort-container">
+            <div>
               <label>
-                <select id="sortSelect">
-                  <option value="id">NEW</option>
-                  <option value="name">NAME</option>
-                  <option value="category">CATEGORY</option>
-                </select>
+              <input type="search" name="search" id="searchVenues" placeholder="Search...">
               </label>
+            </div>
+            <div class="controls">
+                <label>
+                  <select id="sortSelect">
+                    <option value="id">NEW</option>
+                    <option value="name">NAME</option>
+                    <option value="category">CATEGORY</option>
+                  </select>
+                </label>
+            </div>
           </div>
-        </div>
-        <button class="accent-bttn account-bttn">ACCOUNT</button>
-      </section>
+          
+          <button class="accent-bttn account-bttn">ACCOUNT</button>
+        </section>
 
-      <!-- SECTION - CREATE -->
-      <section class="section-create-venues foreground">
-        <h2 class="section-title">+ CREATE VENUE</h2>
-        <form id="venueForm">
-          <input type="hidden" id="venueId" />
-          <label><input id="name" required placeholder="Name*"/></label>
-          <label><input id="category" placeholder="Category*"required /></label>
-          <label><input id="district" placeholder="District"/></label>
-          <label><input id="website" placeholder="Website"/></label>
-          <div class="row">
-            <button type="submit" class="accent-bttn">Create</button>
-            <button type="button" id="cancelEdit">Cancel</button>
+        <!-- SECTION - CREATE -->
+        <section class="section-create-venues">
+          <h2 class="section-title">+ CREATE VENUE</h2>
+          <form id="venueForm">
+            <input type="hidden" id="venueId" />
+            <label><input id="name" placeholder="Name*" required/></label>
+            <label><input id="category" placeholder="Category*" required/></label>
+            <label><input id="district" placeholder="District"/></label>
+            <label><input id="website" placeholder="Website"/></label>
+            <div class="row">
+              <button type="submit" class="accent-bttn">Create</button>
+              <button type="button" id="cancelEdit">Cancel</button>
+            </div>
+          </form>
+        </section>
+        
+        <!-- SECTION - EXPLORE -->
+        <section class="section-venues">
+          <h2 class="section-title">EXPLORE</h2>
+          <div class="venues-container">
+            <ul id="venueList">
+            </ul>
           </div>
-        </form>
-      </section>
-      
-      <!-- SECTION - EXPLORE -->
-      <section class="section-venues foreground">
-        <h2 class="section-title">EXPLORE</h2>
-        <div class="venues-container">
-          <ul id="venueList">
-          </ul>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
 
     <!-- FOOTER -->
     <footer>
-      <div class="footer-profile">
-        <h1 class="logo"><b>JKPG</b></h1>
-        <p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sem lacus, sodales a ex eget, feugiat pulvinar diam.</p>
-        <br>
-        <p class="footer-description"><b>@JKPG 2026</b></p>
-      </div>
-      <div class="footer-links">
-        <ul>
-          <p>JKPG</p>
-          <li class="strong"><a href="#">About</a></li>
-          <li class="strong"><a href="#">Support</a></li>
-          <li class="strong"><a href="#">Contact</a></li>
-        </ul>
-        <ul>
-          <p>Privacy</p>
-          <li class="strong"><a href="#">Privacy Policy</a></li>
-          <li class="strong"><a href="#">Cookie Settings</a></li>
-          <li class="strong"><a href="#">Link</a></li>
-        </ul>
-        <ul>
-          <p>Links</p>
-          <li class="strong"><a href="#">Link</a></li>
-          <li class="strong"><a href="#">Link</a></li>
-          <li class="strong"><a href="#">Link</a></li>
-        </ul>
-        <ul>
-          <p>Links</p>
-          <li class="strong"><a href="#">Link</a></li>
-          <li class="strong"><a href="#">Link</a></li>
-          <li class="strong"><a href="#">Link</a></li>
-        </ul>
+      <div class="header-footer-padding">
+          <div class="container-footer">
+              <div class="footer-profile">
+                <h1 class="logo"><b>JKPG</b></h1>
+                <p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sem lacus, sodales a ex eget, feugiat pulvinar diam.</p>
+                <br>
+                <p class="footer-description"><b>@JKPG 2026</b></p>
+              </div>
+              <div class="footer-links">
+                <ul>
+                  <p>JKPG</p>
+                  <li class="strong"><a href="#">About</a></li>
+                  <li class="strong"><a href="#">Support</a></li>
+                  <li class="strong"><a href="#">Contact</a></li>
+                </ul>
+                <ul>
+                  <p>Privacy</p>
+                  <li class="strong"><a href="#">Privacy Policy</a></li>
+                  <li class="strong"><a href="#">Cookie Settings</a></li>
+                  <li class="strong"><a href="#">Link</a></li>
+                </ul>
+                <ul>
+                  <p>Links</p>
+                  <li class="strong"><a href="#">Link</a></li>
+                  <li class="strong"><a href="#">Link</a></li>
+                  <li class="strong"><a href="#">Link</a></li>
+                </ul>
+                <ul>
+                  <p>Links</p>
+                  <li class="strong"><a href="#">Link</a></li>
+                  <li class="strong"><a href="#">Link</a></li>
+                  <li class="strong"><a href="#">Link</a></li>
+                </ul>
+              </div>
+          </div>
       </div>
     </footer>
 

@@ -1,19 +1,22 @@
 :root {
+  /* Colors */
   --primary: #fff;
   --secondary: #000;
   --foreground: #F6F6F6;
   --accent: #0051FF;
   --hover: #dbdbdb;
   --text-color: #000;
-  --text-larger: larger;
-  --text-large: large;
-  --text-medium: medium;
-  --text-small: small;
-  --padding: 2em;
+  /* Font */
+  --font: "Inter", sans-serif;
+  --text-size-larger: larger;
+  --text-size-large: large;
+  --text-size-medium: medium;
+  --text-size-small: small;
   --text-weight-normal: 400;
   --text-weight-medium: 700;
   --text-weight-bold: 900;
-  --font: "Inter", sans-serif;
+  /* Padding */
+  --padding: 1rem;
 }
 * {
   margin: 0;
@@ -21,8 +24,8 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   text-decoration: none;
-  color: var(--secondary);
   list-style: none;
+  color: var(--secondary);
 }
 body {
   font-family: var(--font);
@@ -31,98 +34,283 @@ body {
 }
 
 
-/* --- STYLES --- */
-.foreground {
-  padding: 16px;
-  border-radius: 12px;
+/* --------------- MAIN LAYOUT --------------- */
+
+main {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  margin: 2rem 0;
 }
-input, button, select, textarea, label input, label select {
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.container-main {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 2rem;
+}
+.section-sort-venues {
+  grid-column: 1 / 9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-create-venues {
+  grid-column: 1 / 3;
+}
+.section-venues {
+  grid-column: 3 / 9;
+}
+.header-footer-padding {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+
+
+/* --------------- STYLES --------------- */
+
+input, button, select, textarea, input {
+  border: 2px solid transparent;
   margin: 8px 0;
-  padding: 10px 20px;
+  padding: 1rem 20px;
   font-family: var(--font);
+  font-weight: var(--text-weight-medium);
   font-size: 0.9em;
-  outline: none;
-  border: none;
 }
-label input, label select {
-  border: 1px solid transparent;
-  padding: 1em;
+input, select {
+  border: 2px solid transparent;
+  padding: 1rem;
   width: 100%;
   font: var(--font);
+  background-color: var(--foreground);
+  font-weight: var(--text-weight-medium);
 }
-button {
-  cursor: pointer;
-  padding: 15px 30px;
+input:focus, select:focus {
+  border: 2px solid var(--secondary);
+  background-color: var(--primary);
+  outline: none;
+}
+input:active, select:active {
+  border: 2px solid var(--secondary);
+  background-color: var(--primary);
+  outline: none;
 }
 .row {
   display: flex;
   gap: 8px;
   margin-top: 8px;
 }
+.section-title {
+  font-weight: var(--text-weight-bold);
+}
+input, button, select, textarea, label input, label select, .container a {
+  transition: 300ms;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  padding: 15px 30px;
+}
 button:hover {
   background-color: var(--hover);
 }
-.accent-bttn {
+.accent-bttn, .special-bttn:hover {
   background-color: var(--accent);
-  color: white;
-}
-.accent-bttn:hover {
-  background-color: var(--secondary);
-}
-.special-bttn {
-  background-color: var(--secondary);
   color: var(--primary);
 }
-.special-bttn:hover {
-  background-color: var(--accent);
+.special-bttn,.accent-bttn:hover {
+  background-color: var(--secondary);
+  color: var(--primary);
 }
 .caution:hover {
   background-color: rgb(247, 97, 97);
 }
-header, input, button, select, span {
-  font-weight: var(--txt-weight-medium);
-}
-.icon {
-  width: 1rem;
-}
-.section-title {
-  font-weight: var(--text-weight-bold);
-}
 
 
-/* --- HEADER / FOOTER --- */
-header, footer {
+
+/* --------------- SECTIONS --------------- */
+
+/* --- SORT --- */
+.sort-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+#searchVenues {
+  width: clamp(250px, 30vw, 600px);
+  background-color: var(--foreground);
+  font-size: 1.2rem;
+}
+#sortSelect {
+  background-color: var(--accent);
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+.section-sort-venues {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 15em 0 15em;
+}
+.section-sort-venues button {
+    font-size: var(--text-size-larger);
+    font-weight: var(--text-weight-medium);
+}
+
+
+/* --- CREATE --- */
+.row button {
+  width: 100%;
+}
+
+
+/* --- EXPLORE --- */
+
+/* Explore - Container */
+.venues-container {
+  height: 78rem;
+  overflow: auto;
+  margin-top: 9px;
+}
+.venues-container::-webkit-scrollbar{
+  width: 12px;
+}
+.venues-container::-webkit-scrollbar-track{
+  background-color: transparent;
+  border-radius: 0;
+}
+.venues-container::-webkit-scrollbar-thumb{
+  background-color: var(--secondary);
+  border: 6px solid var(--secondary);
+  border-radius: 0;
+}
+
+/* Explore - Vanue List */
+#venueList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-right: 1rem;
+}
+.hover {
+  background-color: var(--accent);
+  color: white;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* Explore - Venue List Cards */
+.venues-card {
+  display: flex;
+  flex-direction: column;
   background-color: var(--foreground);
-  font-size: 1.1em;
+  width: 100%;
+  height: 100%;
+}
+.card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.venue-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.card-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  gap: 2rem;
+}
+.icon {
+  width: 0.9rem;
+}
+.card-image {
+  aspect-ratio: 1.5 / 1;
+  width: 100%;
+  overflow: hidden;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card-bttn {
+  padding: 8px 15px;
+  font-weight: var(--text-weight-normal);
+}
+.delete-bttn { 
+  background-color: transparent;
+}
+
+/* Explore - Venues Font Styles */
+.title {
+  font-size: var(--text-size-larger);
+  font-weight: 700;
+}
+.category {
+  font-size: var(--text-size-medium);
+  font-weight: var(--text-weight-normal);
+}
+.district {
+  font-size: var(--text-size-medium);
+  font-weight: var(--text-weight-medium);
+}
+
+
+
+/* --------------- HEADER / FOOTER --------------- */
+header, footer {
+  background-color: var(--foreground);
+  width: 100%;
+}
+.container-header {
+  grid-column: 1/9;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
 }
 .logo {
   font-weight: var(--text-weight-bold);
 }
+
 /* Header */
+header {
+  font-weight: var(--text-weight-medium);
+}
 .header-navigation-menu {
   display: flex;
   align-items: center;
-
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.header-navigation-menu li {
-  margin: 0;
-  padding: 0;
 }
 .header-navigation-menu-button a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1em 2.5em;
-
+  padding: 1.5rem 3rem;
   text-decoration: none;
   line-height: 1;
+  font-size: 1.3rem;
 }
 .header-navigation-menu-button a:hover {
   background-color: var(--hover);
@@ -149,184 +337,110 @@ header, footer {
 }
 
 /* Footer */
-footer {
-  padding: 3em 15em 5em 15em;
+.container-footer {
+  grid-column: 1 / 9;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  font-size: var(--text-medium);
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(2rem, 5vw, 10rem);
+  padding: 3rem 0;
 }
 .footer-profile {
-  grid-column: span 1;
-}
-.footer-description {
-  font-size: var(--text-small);
+  grid-column: 1 / 3;
 }
 .footer-links {
-  grid-column: span 2;
+  grid-column: 3 / 6;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  gap: 5rem;
 }
-.footer-links ul { 
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.footer-links ul li a{ 
-  display: block;
-  font-weight: var(--text-weight-medium);
-}
-
-
-/* --- MAIN - LAYOUT --- */
-main {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 16px;
-  margin: 0 15.5em;
-  margin-bottom: 30px;
-}
-.section-sort-venues {
-  grid-column: span 3;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.section-create-venues {
-  grid-column: span 1;
-}
-.section-venues {
-  grid-column: span 2;
-}
-
-
-/* --- SECTION - SORT --- */
-.sort-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  justify-content: center;
-}
-#searchVenues {
-  width: 43rem;
-  min-width: 20rem;
-  background-color: var(--foreground);
-  font-size: 1.2rem;
-}
-#sortSelect {
-  background-color: var(--accent);
-  color: var(--primary);
-  font-size: 1.2rem;
-}
-.section-sort-venues button {
-    font-size: var(--text-larger);
-    font-weight: var(--text-weight-medium);
-}
-
-
-/* --- SECTION - CREATE --- */
-#venueForm input {
-  background-color: var(--foreground);
-  font-weight: var(--txt-weight-medium);
-}
-
-
-
-/* --- SECTION - EXPLORE --- */
-/* Venue Container */
-.venues-container {
-  height: 53em;
-  overflow: auto;
-  margin-top: 9px;
-}
-.venues-container::-webkit-scrollbar{
-  width: 12px;
-}
-.venues-container::-webkit-scrollbar-track{
-  background-color: transparent;
-  border-radius: 0;
-}
-.venues-container::-webkit-scrollbar-thumb{
-  background-color: var(--secondary);
-  border: 6px solid var(--secondary);
-  border-radius: 0;
-}
-
-/* Vanue List */
-#venueList {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem 2rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  padding-right: 1rem;
-}
-.hover {
-  background-color: var(--accent);
-  color: white;
-}
-.actions {
-  display: flex;
-  gap: 8px;
-  margin-top: 8px;
-}
-/* Venue List Cards */
-.venues-card {
+.footer-links ul {
   display: flex;
   flex-direction: column;
-  height: 400px;
-  background-color: var(--foreground);
+  gap: 1rem;
 }
-.card-top {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.venue-icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
-}
-.card-info {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-}
-.card-image {
-  aspect-ratio: 2 / 1;
-  width: 100%;
-  overflow: hidden;
-}
-.card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.card-bttn {
-  padding: 8px 15px;
-}
-
-/* Venues Styles */
-.title {
-  font-size: var(--text-larger);
-  font-weight: 700;
-}
-.category {
-  font-size: var(--text-medium);
+.footer-links ul p {
   font-weight: var(--text-weight-normal);
 }
-.district {
-  font-size: var(--text-medium);
+.footer-links ul li a {
+  display: block;
   font-weight: var(--text-weight-medium);
 }
+
+/* --------------- MEDIA QUERIES --------------- */
+
+/* Smaller Screens */
+@media (max-width: 1600px) {
+  .section-sort-venues {
+  grid-column: 1 / 9;
+  }
+  .section-create-venues {
+    grid-column: 1 / 4;
+  }
+  .section-venues {
+    grid-column: 4 / 9;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1400px) {
+  main {
+    padding: 2rem;
+  }
+  .section-sort-venues {
+    grid-column: 1 / 9;
+  }
+  .section-create-venues {
+    grid-column: 1 / 4;
+  }
+  .section-venues {
+    grid-column: 4 / 9;
+  }
+  .header-footer-padding {
+    grid-column: 2 / 8;
+  }
+  .footer-profile {
+    grid-column: 1 / 6;
+  }
+  .footer-links {
+    grid-column: 1 / 6;
+    gap: 5rem;
+  }
+  .container-header {
+    padding: 0 2rem;
+  }
+  .container-footer {
+    padding: 3rem;
+  }
+}
+
+/* Phone */
+@media (max-width: 600px) {
+  .section-sort-venues {
+    grid-column: 1 / 9;
+    flex-direction: column;
+  }
+  .section-create-venues {
+    grid-column: 1 / 9;
+  }
+  .section-venues {
+    grid-column: 1 / 9;
+  }
+  .header-footer-padding {
+    grid-column: 1 / 9;
+  }
+  .footer-links {
+    gap: 5rem;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .accent-bttn {
+    width: 100%;
+  }
+  .sort-container > * {
+    width: 100%;
+  }
+}
+
 
 
 
